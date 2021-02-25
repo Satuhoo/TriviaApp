@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {getQuestions} from '../../utils/questions.js'
+import {getQuestions} from '../utils/questions.js'
 
 export default {
   data() {
