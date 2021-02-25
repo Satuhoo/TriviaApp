@@ -8,7 +8,7 @@
           @click="handleClick(answer)"              
         >{{answer}}</button>                    
       </form>  
-      <Results :userAnswers="userAnswers" :questions="questions"/>
+      <Results :userAnswers="userAnswers" :points="points"/>
     </div> 
 </template>
 
@@ -42,7 +42,10 @@ export default {
       if (answer == this.current.correct_answer) {
         this.points += 10;
        }
-      this.userAnswers.push(answer);
+      //Creates new question object and add user's answer for it
+      let question = this.questions[this.index];
+      question.userAnswer = answer;
+      this.userAnswers.push(question); //Adds object to userAnswers list
       console.log("pts: " + this.points)
       console.log("answers: " + this.userAnswers);
       //increment index by one to get the next quiz question
