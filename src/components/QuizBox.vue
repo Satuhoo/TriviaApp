@@ -8,11 +8,13 @@
           @click="handleClick(answer)"              
         >{{answer}}</button>                    
       </form>  
+      <Results :userAnswers="userAnswers" :questions="questions"/>
     </div> 
 </template>
 
 <script>
 import {getQuestions} from '../utils/questions.js'
+import Results from './Results'
 
 export default {
   data() {
@@ -23,6 +25,9 @@ export default {
       questions: [],
       userAnswers: []
     }
+  },
+  components: {
+    Results,
   },
   //returns a single question from the list of questions
   computed: {
