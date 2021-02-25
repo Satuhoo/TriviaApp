@@ -1,5 +1,7 @@
-<template>  
-    <div>           
+<template> 
+
+    <div>     
+      <div v-if="!quizEnded">
       <h1 v-html="loading ? 'Loading questions from the api...' : current.question"></h1>
       <form v-if="current">
         <button
@@ -8,7 +10,12 @@
           @click="handleClick(answer)"              
         >{{answer}}</button>                    
       </form>  
+      </div>
+
+    <div v-if="quizEnded">       
       <Results :userAnswers="userAnswers" :points="points"/>
+    </div>
+      
     </div> 
 </template>
 
@@ -23,7 +30,8 @@ export default {
       points: 0,
       loading: true,
       questions: [],
-      userAnswers: []
+      userAnswers: [],
+      quizEnded: false
     }
   },
   components: {
@@ -50,6 +58,10 @@ export default {
       console.log("answers: " + this.userAnswers);
       //increment index by one to get the next quiz question
       this.index = this.index + 1;
+      //stop the quiz when reaching the end of question list
+      if (this.index == this.questions.length){
+        this.quizEnded = true;
+      }
     },
     async loadQuestions() {
       this.questions = await getQuestions();
