@@ -2,7 +2,10 @@
   <div id="app">
     <Header />
     <button @click="openGame" v-show="showButton">Start game</button>
-    <Quiz v-show="showQuiz" />
+    <router-view>
+      <Quiz/>
+    </router-view>
+    
   </div>
 </template>
 
@@ -19,13 +22,12 @@ export default {
   data() {
     return {
       showButton: true,
-      showQuiz: false,
     };
   },
   methods: {
     openGame() {
+      this.$router.push('/quiz');
       this.showButton = false;
-      this.showQuiz = true;
     },
   },
 };

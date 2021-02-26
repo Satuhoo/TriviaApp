@@ -2,6 +2,8 @@
   <div>
       <h1>Results</h1>
       <p>Your points: {{points}}</p>
+      <button @click="playAgain">Play again!</button>
+      <button @click="quit">Quit game</button>
       <table>
         <tr>
           <th>Guestion</th>
@@ -9,9 +11,9 @@
           <th>Your answer</th>
         </tr>
         <tr v-for="question in userAnswers" :key="question.question">
-          <th>{{question.question}}</th>
-          <th>{{question.correct_answer}}</th>
-          <th>{{question.userAnswer}}</th>
+          <th v-html="question.question"></th>
+          <th v-html="question.correct_answer"></th>
+          <th v-html="question.userAnswer"></th>
         </tr>
       </table>
   </div>
@@ -20,9 +22,21 @@
 <script>
 export default {
   props: {
-    userAnswers: Array,
-    points: Number    
+    userAnswers: {
+      type: Array
+    },
+    points: {
+      type: Number
+    },
   },
+  methods: {
+    playAgain () {
+      this.$emit('play-again')
+    },
+    quit() {
+      this.$emit('quit')
+    }
+  }
 }
 </script>
 
