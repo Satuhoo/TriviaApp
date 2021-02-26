@@ -1,9 +1,9 @@
 <template> 
     <div>      
-      <h1>{{currentQuestion.question}}</h1>
+      <h1 v-html="currentQuestion.question"></h1>
       <div v-if="currentQuestion">
         <button type="button" v-for="answer in currentQuestion.answers"
-        :key="answer" @click="handleClick(answer)">{{answer}}</button>                    
+        :key="answer" @click="handleClick(answer)" v-html="answer"></button>                    
       </div> 
       </div>   
 </template>
