@@ -20,8 +20,8 @@
 <script>
 export default {
   props: {
-    userAnswers: [],
-    points: {},
+    userAnswers: Array,
+    points: Number    
   },
 }
 </script>

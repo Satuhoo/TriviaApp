@@ -2,19 +2,19 @@
   <div id="app">
     <Header />
     <button @click="openGame" v-show="showButton">Start game</button>
-    <QuizBox v-show="showQuiz" />
+    <Quiz v-show="showQuiz" />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import QuizBox from "./components/QuizBox";
+import Quiz from "./components/Quiz";
 
 export default {
   name: "App",
   components: {
     Header,
-    QuizBox,
+    Quiz,
   },
   data() {
     return {
