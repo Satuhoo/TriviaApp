@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <button @click="openGame" v-if="$route.path === '/'">Start game</button>
+    <button class="start-btn" @click="openGame" v-if="$route.path === '/'">Start game</button>
     <router-view>
       <Quiz/>
     </router-view>
@@ -27,4 +27,15 @@ export default {
 </script>
 
 <style>
+#app {
+  text-align: center;
+}
+.start-btn {
+  margin-top: 100px;
+  background-color: yellowgreen;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
 </style>

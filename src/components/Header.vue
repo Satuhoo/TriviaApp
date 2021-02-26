@@ -13,10 +13,10 @@ export default {
 <style scoped>
 header {
     background-color: #2e2f30;
-    color: whitesmoke;
-    padding: 20px;
-    padding-left: 40px;
-    font-size: 22px;
+    color:yellowgreen;
+    padding: 15px;
+    font-size: 38px;
     font-weight: bold;
+    text-align: center;
 }
 </style>

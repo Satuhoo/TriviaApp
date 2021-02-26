@@ -1,14 +1,14 @@
 <template>
   <div>
-      <h1>Results</h1>
-      <p>Your points: {{points}}</p>
-      <button @click="playAgain">Play again!</button>
-      <button @click="quit">Quit game</button>
+      <h2>Results</h2>
+      <p class="points">Your points: {{points}}</p>
+      <button class="btn" @click="playAgain">Play again!</button>
+      <button class="btn" @click="quit">Quit game</button>
       <table>
         <tr>
-          <th>Guestion</th>
-          <th>Correct answer</th>
-          <th>Your answer</th>
+          <th class="title">Guestion</th>
+          <th class="title">Correct answer</th>
+          <th class="title">Your answer</th>
         </tr>
         <tr v-for="question in userAnswers" :key="question.question">
           <th v-html="question.question"></th>
@@ -41,15 +41,43 @@ export default {
 </script>
 
 <style>
+h2 {
+  margin-top: 40px;
+}
+.points {
+  margin-top: 30px;
+  font-size: 18px;
+}
+.btn {
+  background-color: yellowgreen;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 30px 10px 10px 10px;
+  border-radius: 5px;
+}
+table {
+  margin: 30px 150px 50px 150px;
+}
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  font-weight: normal;
+}
+.title {
+  font-weight: bold;
+  background-color: lightgray;
 }
 .correct {
   color: green;
 }
 .wrong {
   color:red;
+}
+@media (max-width: 800px) {
+    table {
+      margin: 30px 40px 50px 40px;
+    }
 }
 </style>
