@@ -13,7 +13,7 @@
         <tr v-for="question in userAnswers" :key="question.question">
           <th v-html="question.question"></th>
           <th v-html="question.correct_answer"></th>
-          <th v-html="question.userAnswer"></th>
+          <th v-html="question.userAnswer" :class="question.userAnswer == question.correct_answer ? 'correct' : 'wrong'"></th>
         </tr>
       </table>
   </div>
@@ -45,5 +45,11 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+}
+.correct {
+  color: green;
+}
+.wrong {
+  color:red;
 }
 </style>
