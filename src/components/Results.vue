@@ -1,7 +1,7 @@
 <template>
   <div>
       <h2>Results</h2>
-      <p class="points">Your points: {{points}}</p>
+      <p class="points">Your points: {{points}} of {{userAnswers.length * 10}}</p>
       <button class="btn" @click="playAgain">Play again!</button>
       <button class="btn" @click="quit">Quit game</button>
       <table>
@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h2 {
   margin-top: 40px;
 }

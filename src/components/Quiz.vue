@@ -2,7 +2,8 @@
     <div> 
       <div v-if="!loading">      
       <Questions :questions = "questions" v-if="!quizEnded" />   
-      </div>       
+      </div>
+      <p v-else>Loading questions...</p>
       <Results :userAnswers = "userAnswers" :points="points" v-if="quizEnded" 
         @play-again="playAgain" @quit="quit"/>
     </div> 
@@ -69,6 +70,3 @@ export default {
   },
 }
 </script>
-
-<style>
-</style>
