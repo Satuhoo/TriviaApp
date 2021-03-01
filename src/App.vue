@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <Header />
+    <!--Shows the category selector and 'start game' button if path is '/'-->
     <QuizSelector v-if="$route.path === '/'"/>
     <button class="start-btn" @click="openGame" v-if="$route.path === '/'">Start game</button>    
     <router-view>
       <Quiz/>
     </router-view>
-    
   </div>
 </template>
 
@@ -14,7 +14,6 @@
 import Header from "./components/Header";
 import Quiz from "./components/Quiz";
 import QuizSelector from './components/QuizSelector.vue';
-
 
 export default {
   name: "App",
@@ -26,7 +25,7 @@ export default {
   methods: {
     openGame() {
       this.$emit('query');
-      this.$router.push('/quiz');
+      this.$router.push('/quiz'); //Navigates to the game when the start game button is clicked
     },
   },
 };
@@ -34,9 +33,9 @@ export default {
 
 <style>
 #app {
-    margin-top:auto;
-    margin-bottom:auto;
-    text-align:center;
+  margin-top:auto;
+  margin-bottom:auto;
+  text-align:center;
 }
 .start-btn {
   margin-top: 100px;

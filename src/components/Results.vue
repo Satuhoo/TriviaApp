@@ -2,6 +2,7 @@
   <div>
       <h2>Results</h2>
       <p class="points">Your points: {{points}} of {{userAnswers.length * 10}}</p>
+      <!--Buttons call the methods which call to parent component to handle it-->
       <button class="btn" @click="playAgain">Play again!</button>
       <button class="btn" @click="quit">Quit game</button>
       <table>
@@ -10,9 +11,11 @@
           <th class="title">Correct answer</th>
           <th class="title">Your answer</th>
         </tr>
+        <!--Creates table from all questions, correct answers and user's answers-->
         <tr v-for="question in userAnswers" :key="question.question">
           <th v-html="question.question"></th>
           <th v-html="question.correct_answer"></th>
+          <!--Changes the color of answer depending if it is correct or wrong answer-->
           <th v-html="question.userAnswer" :class="question.userAnswer == question.correct_answer ? 'correct' : 'wrong'"></th>
         </tr>
       </table>
@@ -31,10 +34,10 @@ export default {
   },
   methods: {
     playAgain () {
-      this.$emit('play-again')
+      this.$emit('play-again') //Send the information about playing game again to parent component
     },
     quit() {
-      this.$emit('quit')
+      this.$emit('quit') //Send the information about quitting game to parent component which handle it
     }
   }
 }
