@@ -10,7 +10,10 @@ export function setQueryString (queryParamas){
 }
 
 //calls the api to fetch the quiz questions
-export const getQuestions = () =>{    
+export const getQuestions = () =>{
+    if (query_url == null){
+        query_url = 'https://opentdb.com/api.php?amount=10'
+    }    
     return fetch (query_url).then(response => response.json())
     .then(response => response.results)
 }
