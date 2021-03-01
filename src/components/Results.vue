@@ -75,6 +75,7 @@ td, th {
 .wrong {
   color:red;
 }
+/*If screen width is 800 or smaller, changes margins of results table*/
 @media (max-width: 800px) {
     table {
       margin: 30px 40px 50px 40px;

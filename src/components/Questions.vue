@@ -101,6 +101,7 @@ export default {
 p {
   margin-top: 50px;
 }
+/*If screen width is 800 or smaller, changes answer buttons sizes*/
 @media (max-width: 800px) {
     .answer-btn {
       width: 150px;

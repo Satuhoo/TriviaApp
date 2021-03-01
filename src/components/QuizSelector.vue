@@ -1,6 +1,5 @@
 <template>
-
-  <div>
+  <div class="flex-container">
     <div id="questions">
     <span>Amount of questions: </span>
     <select v-model="num">
@@ -12,7 +11,6 @@
       </option>
     </select>
     </div>
-
     <div id="category">
     <span>Category: </span>
     <select v-model="cat">
@@ -24,7 +22,6 @@
       </option>
     </select>
     </div>
-    
   </div>
 </template>
 
@@ -75,20 +72,28 @@ export default {
 </script>
 
 <style>
+.flex-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.flex-container > div {
+    font-size: 18px;
+    margin: 20px;
+}
 select {
   margin-top: 20px;
   background-color: yellowgreen;
   font-size: 18px;
   font-weight: bold;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
 }
-
-#questions {
-  font-size: 18px;
-}
-
-#category {
-  font-size: 18px;
+/*If screen width is small enough, changes dropdown menus to one column instead of row*/
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
 }
 </style>
+  
