@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <button class="start-btn" @click="openGame" v-if="$route.path === '/'">Start game</button>
+    <QuizSelector v-if="$route.path === '/'"/>
+    <button class="start-btn" @click="openGame" v-if="$route.path === '/'">Start game</button>    
     <router-view>
       <Quiz/>
     </router-view>
@@ -12,14 +13,19 @@
 <script>
 import Header from "./components/Header";
 import Quiz from "./components/Quiz";
+import QuizSelector from './components/QuizSelector.vue';
+
+
 export default {
   name: "App",
   components: {
     Header,
     Quiz,
+    QuizSelector,
   },
   methods: {
     openGame() {
+      this.$emit('query');
       this.$router.push('/quiz');
     },
   },
@@ -28,7 +34,9 @@ export default {
 
 <style>
 #app {
-  text-align: center;
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
 }
 .start-btn {
   margin-top: 100px;

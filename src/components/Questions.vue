@@ -3,7 +3,7 @@
       <h1 class="question" v-html="currentQuestion.question"></h1>
       <div v-if="currentQuestion">
         <div class="grid-container" >
-          <div  class="grid-item" v-for="answer in currentQuestion.answers" :key="answer">
+          <div class="grid-item" v-for="answer in currentQuestion.answers" :key="answer">
             <button v-if="!clicked" class="answer-btn" type="button" 
               @click="handleClick(answer)" v-html="answer">
             </button>    
@@ -85,6 +85,9 @@ export default {
 }
 .grid-item {
   margin-top: 20px;
+}
+.answer-btn:hover{
+  transform: scale(1.1);
 }
 .answer-btn {
   background-color: yellowgreen;
