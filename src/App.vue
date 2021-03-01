@@ -23,8 +23,7 @@ export default {
     QuizSelector,
   },
   methods: {
-    openGame() {
-      this.$emit('query');
+    openGame() {      
       this.$router.push('/quiz'); //Navigates to the game when the start game button is clicked
     },
   },
